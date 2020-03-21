@@ -1,0 +1,27 @@
+﻿@model Software2_project.Models.AdminModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("LoginConfirmmed", "Home"))
+{
+    <h2 style="text-align:center; font-weight:bold; width:20%; margin-right:auto; margin-left:auto; margin-bottom:12px;">
+        <span style="border-bottom:1.5px solid">Login</span>
+    </h2>
+
+    <div class="form-group" style="font-weight:bold">
+        @Html.LabelFor(m => m.username)
+        @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Enter Your Username" })
+        @Html.ValidationMessageFor(m => m.username)
+    </div>
+
+    <div id="gone" class="form-group" style="font-weight:bold">
+        @Html.LabelFor(m => m.password)
+        @Html.PasswordFor(m => m.password, new { @class = "form-control", placeholder = "Enter Your Password" })
+        @Html.ValidationMessageFor(m => m.password)
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="border-radius:10px;margin-top:10px">Submit</button>
+}
+
