@@ -83,3 +83,4 @@ C:\data\fcih\SS\SowfwareProject-\newproject\Software2 project\obj\Debug\Software
 C:\data\fcih\SS\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.csprojAssemblyReference.cache
 C:\data\fcih\SS\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.csproj.CopyComplete
 C:\data\fcih\SS\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.StudentMigration.resources
+C:\data\fcih\SS\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.ProfessotMigration.resources

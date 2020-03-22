@@ -52,11 +52,31 @@ namespace Software2_project.Controllers
             return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult Create(StudentModel student)
+        public ActionResult CreateStudent(StudentModel student)
         {
             if (student.id == 0)
             {
                 _context.studentDb.Add(student);
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
+
+        //-----------------------------------------------------------Professor-------------------------------------------------------
+
+        public ActionResult addProfessor()
+        {
+            if (Session["username"] != null)
+                return View();
+
+            return RedirectToAction("Login", "Home");
+        }
+
+        public ActionResult CreateProfessor(ProfessorModel professor)
+        {
+            if (professor.id == 0)
+            {
+                _context.professorDb.Add(professor);
             }
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
