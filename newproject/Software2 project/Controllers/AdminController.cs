@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,6 +40,26 @@ namespace Software2_project.Controllers
         {
             Session.RemoveAll();
             return RedirectToAction("Login", "Home");
+        }
+
+        //------------------------------------------------------------Student--------------------------------------------------------
+
+        public ActionResult addStudent()
+        {
+            if (Session["username"] != null)
+                return View();
+
+            return RedirectToAction("Login", "Home");
+        }
+
+        public ActionResult Create(StudentModel student)
+        {
+            if (student.id == 0)
+            {
+                _context.studentDb.Add(student);
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

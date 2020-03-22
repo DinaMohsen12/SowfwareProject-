@@ -10,5 +10,6 @@ namespace Software2_project.Context
     public class examinationContext : DbContext
     {
         public DbSet<AdminModel> adminDb { get; set; }
+        public DbSet<StudentModel> studentDb { get; set; }
     }
 }
