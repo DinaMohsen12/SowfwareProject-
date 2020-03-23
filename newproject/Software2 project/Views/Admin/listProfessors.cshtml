@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Software2_project.Models.ProfessorModel>
 @{
     ViewBag.Title = "listProfessors";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,15 +13,17 @@
         <tr class="table-active">
             <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">ID</th>
             <th scope="col" style="text-align:center">Name</th>
+            <th scope="col" style="text-align: center;width: 5%"></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var student in Model)
+        @foreach (var professor in Model)
         {
 
-            <tr data-href="@Url.Action("editStudent", "Admin", new { id = student.id }, null)">
-                <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@student.id</td>
-                <td scope="row">@student.name</td>
+            <tr data-href="@Url.Action("editProfessor", "Admin", new { id = professor.id }, null)">
+                <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@professor.id</td>
+                <td scope="row">@professor.name</td>
+                <td scope="row" style="color:#cb0000; font-weight:bold">@Html.ActionLink("Delete", "deleteProfessor", new { id = professor.id })</td>
             </tr>
         }
     </tbody>

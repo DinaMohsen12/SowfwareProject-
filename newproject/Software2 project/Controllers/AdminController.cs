@@ -121,5 +121,23 @@ namespace Software2_project.Controllers
 
             else return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult deleteProfessor(short id)
+        {
+            ProfessorModel prof = _context.professorDb.Find(id);
+            if (prof == null)
+                return HttpNotFound();
+
+            return View(prof);
+        }
+
+        [HttpPost, ActionName("deleteProfessor")]
+        public ActionResult deleteConfirmedProf(short id)
+        {
+            ProfessorModel prof = _context.professorDb.Find(id);
+            _context.professorDb.Remove(prof);
+            _context.SaveChanges();
+            return RedirectToAction("listProfessors", "Admin");
+        }
     }
 }
