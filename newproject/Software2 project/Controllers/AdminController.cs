@@ -59,7 +59,7 @@ namespace Software2_project.Controllers
                 _context.studentDb.Add(student);
             }
             _context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ListStudents", "Admin");
         }
 
         public ActionResult listStudents()
@@ -70,25 +70,35 @@ namespace Software2_project.Controllers
                 return View(students);
             }
 
-            else return RedirectToAction("Index", "Home");
+            else return RedirectToAction("Login", "Home");
         }
 
         public ActionResult deleteStudent(short id)
         {
-            StudentModel student = _context.studentDb.Find(id);
-            if (student == null)
-                return HttpNotFound();
+            if(Session["username"] != null)
+            {
+                StudentModel student = _context.studentDb.Find(id);
+                if (student == null)
+                    return HttpNotFound();
 
-            return View(student);
+                return View(student);
+            }
+
+            else return RedirectToAction("Login", "Home");
         }
 
         [HttpPost, ActionName("deleteStudent")]
         public ActionResult deleteConfirmed(short id)
         {
-            StudentModel student = _context.studentDb.Find(id);
-            _context.studentDb.Remove(student);
-            _context.SaveChanges();
-            return RedirectToAction("listStudents", "Admin");
+            if(Session["username"] != null)
+            {
+                StudentModel student = _context.studentDb.Find(id);
+                _context.studentDb.Remove(student);
+                _context.SaveChanges();
+                return RedirectToAction("listStudents", "Admin");
+            }
+
+            else return RedirectToAction("Login", "Home");
         }
 
         //-----------------------------------------------------------Professor-------------------------------------------------------
@@ -108,7 +118,7 @@ namespace Software2_project.Controllers
                 _context.professorDb.Add(professor);
             }
             _context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("ListProfessors", "Admin");
         }
 
         public ActionResult listProfessors()
@@ -119,25 +129,35 @@ namespace Software2_project.Controllers
                 return View(professors);
             }
 
-            else return RedirectToAction("Index", "Home");
+            else return RedirectToAction("Login", "Home");
         }
 
         public ActionResult deleteProfessor(short id)
         {
-            ProfessorModel prof = _context.professorDb.Find(id);
-            if (prof == null)
-                return HttpNotFound();
+            if(Session["username"] != null)
+            {
+                ProfessorModel prof = _context.professorDb.Find(id);
+                if (prof == null)
+                    return HttpNotFound();
 
-            return View(prof);
+                return View(prof);
+            }
+            
+            else return RedirectToAction("Index", "Home");
         }
 
         [HttpPost, ActionName("deleteProfessor")]
         public ActionResult deleteConfirmedProf(short id)
         {
-            ProfessorModel prof = _context.professorDb.Find(id);
-            _context.professorDb.Remove(prof);
-            _context.SaveChanges();
-            return RedirectToAction("listProfessors", "Admin");
+            if(Session["usename"] != null)
+            {
+                ProfessorModel prof = _context.professorDb.Find(id);
+                _context.professorDb.Remove(prof);
+                _context.SaveChanges();
+                return RedirectToAction("listProfessors", "Admin");
+            }
+
+            else return RedirectToAction("Index", "Home");
         }
     }
 }

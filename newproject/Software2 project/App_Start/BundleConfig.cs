@@ -23,7 +23,7 @@ namespace Software2_project
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrapSuperHero.css",
                       "~/Content/site.css"));
         }
     }
