@@ -13,6 +13,7 @@
         <tr class="table-active">
             <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">ID</th>
             <th scope="col" style="text-align:center">Name</th>
+            <th scope="col" style="text-align: center;width: 5%"></th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
             <tr data-href="@Url.Action("editStudent", "Admin", new { id = student.id }, null)">
                 <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@student.id</td>
                 <td scope="row">@student.name</td>
+                <td scope="row" style="color:#cb0000; font-weight:bold">@Html.ActionLink("Delete", "deleteStudent", new { id = student.id })</td>
             </tr>
         }
     </tbody>

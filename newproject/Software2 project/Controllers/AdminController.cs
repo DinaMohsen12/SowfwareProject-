@@ -73,6 +73,24 @@ namespace Software2_project.Controllers
             else return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult deleteStudent(short id)
+        {
+            StudentModel student = _context.studentDb.Find(id);
+            if (student == null)
+                return HttpNotFound();
+
+            return View(student);
+        }
+
+        [HttpPost, ActionName("deleteStudent")]
+        public ActionResult deleteConfirmed(short id)
+        {
+            StudentModel student = _context.studentDb.Find(id);
+            _context.studentDb.Remove(student);
+            _context.SaveChanges();
+            return RedirectToAction("listStudents", "Admin");
+        }
+
         //-----------------------------------------------------------Professor-------------------------------------------------------
 
         public ActionResult addProfessor()
