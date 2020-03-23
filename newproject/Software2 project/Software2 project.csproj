@@ -193,6 +193,7 @@
     <Content Include="Views\Admin\addStudent.cshtml" />
     <Content Include="Views\Admin\addProfessor.cshtml" />
     <Content Include="Views\Admin\listStudents.cshtml" />
+    <Content Include="Views\Admin\listProfessors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

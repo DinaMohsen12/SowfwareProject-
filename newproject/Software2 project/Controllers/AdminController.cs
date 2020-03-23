@@ -92,5 +92,16 @@ namespace Software2_project.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult listProfessors()
+        {
+            if (Session["username"] != null)
+            {
+                var professors = _context.professorDb.ToList();
+                return View(professors);
+            }
+
+            else return RedirectToAction("Index", "Home");
+        }
     }
 }
