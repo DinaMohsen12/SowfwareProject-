@@ -62,6 +62,17 @@ namespace Software2_project.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult listStudents()
+        {
+            if(Session["username"] != null)
+            {
+                var students = _context.studentDb.ToList();
+                return View(students);
+            }
+
+            else return RedirectToAction("Index", "Home");
+        }
+
         //-----------------------------------------------------------Professor-------------------------------------------------------
 
         public ActionResult addProfessor()

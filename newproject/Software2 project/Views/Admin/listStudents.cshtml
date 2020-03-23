@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "listStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; font-weight:bold; width:27%; margin-right:auto; margin-left:auto; margin-bottom:12px;">
+    <span style="border-bottom:1.5px solid;">List All Students</span>
+</h2>
+
+<table class="table table-hover" style="margin-right:auto; margin-left:auto">
+    <thead>
+        <tr class="table-active">
+            <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">ID</th>
+            <th scope="col" style="text-align:center">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+
+            <tr data-href="@Url.Action("editStudent", "Admin", new { id = student.id }, null)">
+                <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@student.id</td>
+                <td scope="row">@student.name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
+
