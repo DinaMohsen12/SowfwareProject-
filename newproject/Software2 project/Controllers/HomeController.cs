@@ -46,11 +46,26 @@ namespace Software2_project.Controllers
             {
                 using (_context)
                 {
-                    var log = _context.adminDb.Where(a => a.username.Equals(lg.username) && a.password.Equals(lg.password)).FirstOrDefault();
-                    if (log != null)
+                    var logStudent = _context.studentDb.Where(a => a.username.Equals(lg.username) && a.password.Equals(lg.password)).FirstOrDefault();
+                    var logProfessor = _context.professorDb.Where(a => a.username.Equals(lg.username) && a.password.Equals(lg.password)).FirstOrDefault();
+                    var logAdmin = _context.adminDb.Where(a => a.username.Equals(lg.username) && a.password.Equals(lg.password)).FirstOrDefault();
+                    if (logStudent != null)
                     {
-                        Session["username"] = log.username;
-                        return RedirectToAction("LoggedIn", "Admin");
+                        Session["username"] = logStudent.username;
+                        Session["role"] = logStudent.role;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (logProfessor != null)
+                    {
+                        Session["username"] = logProfessor.username;
+                        Session["role"] = logProfessor.role;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (logAdmin != null)
+                    {
+                        Session["username"] = logAdmin.username;
+                        Session["role"] = logAdmin.role;
+                        return RedirectToAction("LoggedIn", "Student");
                     }
                     else
                     {

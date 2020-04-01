@@ -51,5 +51,12 @@ namespace Software2_project.Models
         [Required]
         [Display(Name = "Gender")]
         public string gender { get; set; }
+
+        public string role { get; set; }
+
+        public StudentModel()
+        {
+            role = "student";
+        }
     }
 }

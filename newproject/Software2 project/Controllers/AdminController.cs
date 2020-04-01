@@ -32,7 +32,7 @@ namespace Software2_project.Controllers
         {
             if (Session["username"] != null)
                 return View();
-
+            
             return RedirectToAction("Login", "Home");
         }
 
@@ -46,7 +46,8 @@ namespace Software2_project.Controllers
 
         public ActionResult addStudent()
         {
-            if (Session["username"] != null)
+            // you have to add this condition for every action of admin 
+            if (Session["username"] != null && Session["role"] == "admin")
                 return View();
 
             return RedirectToAction("Login", "Home");

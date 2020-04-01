@@ -28,5 +28,12 @@ namespace Software2_project.Models
         [Phone]
         [Display(Name = "Phone Number")]
         public string phone { get; set; }
+
+        public string role { get; set; }
+
+        public AdminModel()
+        {
+            role = "admin";
+        }
     }
 }

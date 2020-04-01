@@ -109,6 +109,15 @@
                     </a>
                 </form>
             }
+
+            @if (Session["username"] == null)
+            {
+                <form class="form-inline my-2 my-lg-0" style="background:none; border:none">
+                    <a class="btn btn-secondary my-2 my-sm-0" href="@Url.Action("Login","Home")" style="background:none; border:none">
+                        Login
+                    </a>
+                </form>
+            }
         </div>
     </nav>
     <div class="container body-content">
