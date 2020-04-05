@@ -149,8 +149,13 @@
     <Compile Include="Migrations\202004011720036_Add_role_attribute_to_every_user.designer.cs">
       <DependentUpon>202004011720036_Add_role_attribute_to_every_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004052130355_CourseModel.cs" />
+    <Compile Include="Migrations\202004052130355_CourseModel.designer.cs">
+      <DependentUpon>202004052130355_CourseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\ProfessorModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
@@ -230,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004011720036_Add_role_attribute_to_every_user.resx">
       <DependentUpon>202004011720036_Add_role_attribute_to_every_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004052130355_CourseModel.resx">
+      <DependentUpon>202004052130355_CourseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

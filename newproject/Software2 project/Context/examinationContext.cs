@@ -12,5 +12,13 @@ namespace Software2_project.Context
         public DbSet<AdminModel> adminDb { get; set; }
         public DbSet<StudentModel> studentDb { get; set; }
         public DbSet<ProfessorModel> professorDb { get; set; }
+        public DbSet<CourseModel> courseDb { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
+
     }
 }
