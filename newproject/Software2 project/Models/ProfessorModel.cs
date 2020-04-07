@@ -62,5 +62,8 @@ namespace Software2_project.Models
         {
             role = "professor";
         }
+
+
+        public virtual ICollection<CourseModel> courseModel { get; set; }
     }
 }
