@@ -344,3 +344,92 @@ D:\Youssef\Training\SowfwareProject-\newproject\Software2 project\obj\Debug\Soft
 D:\Youssef\Training\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.dll
 D:\Youssef\Training\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.pdb
 D:\Youssef\Training\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.CourseModel.resources
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Software2 project.dll.config
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Software2 project.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Software2 project.pdb
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\csc.exe
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\csc.exe.config
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\csc.rsp
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\csi.exe
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\csi.exe.config
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\csi.rsp
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.Managed.Core.targets
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.AppContext.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Collections.Immutable.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Console.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Globalization.Calendars.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.IO.Compression.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.IO.FileSystem.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Net.Http.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Net.Sockets.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Reflection.Metadata.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.ValueTuple.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Xml.XmlDocument.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Xml.XPath.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\vbc.exe
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\vbc.exe.config
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\vbc.rsp
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\VBCSCompiler.exe
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\roslyn\VBCSCompiler.exe.config
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Antlr3.Runtime.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\EntityFramework.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\EntityFramework.SqlServer.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Microsoft.Web.Infrastructure.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Newtonsoft.Json.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Helpers.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Mvc.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Optimization.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Razor.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.WebPages.Deployment.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.WebPages.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.WebPages.Razor.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\WebGrease.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\EntityFramework.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\EntityFramework.SqlServer.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Helpers.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Mvc.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Optimization.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.Razor.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.WebPages.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.WebPages.Deployment.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\System.Web.WebPages.Razor.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Newtonsoft.Json.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Antlr3.Runtime.pdb
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.csprojAssemblyReference.cache
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.AdminMigration.resources
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.StudentMigration.resources
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.ProfessotMigration.resources
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.Add_role_attribute_to_every_user.resources
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.CourseModel.resources
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.csproj.GenerateResource.cache
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.csproj.CoreCompileInputs.cache
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.csproj.CopyComplete
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.dll
+E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.pdb

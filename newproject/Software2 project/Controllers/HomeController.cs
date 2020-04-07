@@ -65,7 +65,7 @@ namespace Software2_project.Controllers
                     {
                         Session["username"] = logAdmin.username;
                         Session["role"] = logAdmin.role;
-                        return RedirectToAction("LoggedIn", "Student");
+                        return RedirectToAction("LoggedIn", "Admin");
                     }
                     else
                     {

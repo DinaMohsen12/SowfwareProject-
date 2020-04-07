@@ -47,7 +47,7 @@ namespace Software2_project.Controllers
         public ActionResult addStudent()
         {
             // you have to add this condition for every action of admin 
-            if (Session["username"] != null && Session["role"] == "admin")
+            if (Session["username"] != null && Session["role"].Equals("admin"))
                 return View();
 
             return RedirectToAction("Login", "Home");
@@ -159,6 +159,19 @@ namespace Software2_project.Controllers
             }
 
             else return RedirectToAction("Index", "Home");
+        }
+
+        //-------------------------------------------------Course----------------------------------------
+
+        public ActionResult listCourses()
+        {
+            if (Session["username"] != null)
+            {
+                var courses = _context.courseDb.ToList();
+                return View(courses);
+            }
+
+            else return RedirectToAction("Login", "Home");
         }
     }
 }
