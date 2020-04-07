@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Software2_project.Models.CourseModel>
+@{
+    ViewBag.Title = "listCourses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; font-weight:bold; width:27%; margin-right:auto; margin-left:auto; margin-bottom:12px;">
+    <span style="border-bottom:1.5px solid;">List All Students</span>
+</h2>
+
+<table class="table table-hover" style="margin-right:auto; margin-left:auto">
+    <thead>
+        <tr class="table-active">
+            <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">Code</th>
+            <th scope="col" style="text-align:center">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+
+            <tr data-href="@Url.Action("editCourse", "Admin", new { id = course.id }, null)">
+                <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@course.code</td>
+                <td scope="row">@course.name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
