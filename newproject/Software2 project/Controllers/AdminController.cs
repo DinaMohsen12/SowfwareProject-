@@ -173,5 +173,33 @@ namespace Software2_project.Controllers
 
             else return RedirectToAction("Login", "Home");
         }
+
+        public ActionResult deleteCourse(short id)
+        {
+            if (Session["username"] != null)
+            {
+                CourseModel course = _context.courseDb.Find(id);
+                if (course == null)
+                    return HttpNotFound();
+
+                return View(course);
+            }
+
+            else return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost, ActionName("deleteProfessor")]
+        public ActionResult deleteConfirmedCourse(short id)
+        {
+            if (Session["usename"] != null)
+            {
+                CourseModel course = _context.courseDb.Find(id);
+                _context.courseDb.Remove(course);
+                _context.SaveChanges();
+                return RedirectToAction("listCourses", "Admin");
+            }
+
+            else return RedirectToAction("Index", "Home");
+        }
     }
 }
