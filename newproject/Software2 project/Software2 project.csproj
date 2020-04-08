@@ -153,6 +153,10 @@
     <Compile Include="Migrations\202004052130355_CourseModel.designer.cs">
       <DependentUpon>202004052130355_CourseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004082044052_adding_DataAnnotation_to_Course_Attribute.cs" />
+    <Compile Include="Migrations\202004082044052_adding_DataAnnotation_to_Course_Attribute.designer.cs">
+      <DependentUpon>202004082044052_adding_DataAnnotation_to_Course_Attribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\CourseModel.cs" />
@@ -209,6 +213,7 @@
     <Content Include="Views\Admin\listCourses.cshtml" />
     <Content Include="Views\Admin\deleteCourse.cshtml" />
     <Content Include="Views\Shared\HomeLayout.cshtml" />
+    <Content Include="Views\Admin\editStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -241,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004052130355_CourseModel.resx">
       <DependentUpon>202004052130355_CourseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004082044052_adding_DataAnnotation_to_Course_Attribute.resx">
+      <DependentUpon>202004082044052_adding_DataAnnotation_to_Course_Attribute.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
