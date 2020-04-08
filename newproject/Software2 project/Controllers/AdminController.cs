@@ -30,7 +30,7 @@ namespace Software2_project.Controllers
 
         public ActionResult LoggedIn()
         {
-            if (Session["username"] != null)
+            if (Session["username"] != null && Session["role"].Equals("admin"))
                 return View();
             
             return RedirectToAction("Login", "Home");
@@ -46,7 +46,6 @@ namespace Software2_project.Controllers
 
         public ActionResult addStudent()
         {
-            // you have to add this condition for every action of admin 
             if (Session["username"] != null && Session["role"].Equals("admin"))
                 return View();
 
@@ -65,7 +64,7 @@ namespace Software2_project.Controllers
 
         public ActionResult listStudents()
         {
-            if(Session["username"] != null)
+            if(Session["username"] != null && Session["role"].Equals("admin"))
             {
                 var students = _context.studentDb.ToList();
                 return View(students);
@@ -76,7 +75,7 @@ namespace Software2_project.Controllers
 
         public ActionResult deleteStudent(short id)
         {
-            if(Session["username"] != null)
+            if(Session["username"] != null && Session["role"].Equals("admin"))
             {
                 StudentModel student = _context.studentDb.Find(id);
                 if (student == null)
@@ -91,7 +90,7 @@ namespace Software2_project.Controllers
         [HttpPost, ActionName("deleteStudent")]
         public ActionResult deleteConfirmed(short id)
         {
-            if(Session["username"] != null)
+            if(Session["username"] != null && Session["role"].Equals("admin"))
             {
                 StudentModel student = _context.studentDb.Find(id);
                 _context.studentDb.Remove(student);
@@ -106,7 +105,7 @@ namespace Software2_project.Controllers
 
         public ActionResult addProfessor()
         {
-            if (Session["username"] != null)
+            if (Session["username"] != null && Session["role"].Equals("admin"))
                 return View();
 
             return RedirectToAction("Login", "Home");
@@ -124,7 +123,7 @@ namespace Software2_project.Controllers
 
         public ActionResult listProfessors()
         {
-            if (Session["username"] != null)
+            if (Session["username"] != null && Session["role"].Equals("admin"))
             {
                 var professors = _context.professorDb.ToList();
                 return View(professors);
@@ -135,7 +134,7 @@ namespace Software2_project.Controllers
 
         public ActionResult deleteProfessor(short id)
         {
-            if(Session["username"] != null)
+            if(Session["username"] != null && Session["role"].Equals("admin"))
             {
                 ProfessorModel prof = _context.professorDb.Find(id);
                 if (prof == null)
@@ -150,7 +149,7 @@ namespace Software2_project.Controllers
         [HttpPost, ActionName("deleteProfessor")]
         public ActionResult deleteConfirmedProf(short id)
         {
-            if(Session["usename"] != null)
+            if(Session["usename"] != null && Session["role"].Equals("admin"))
             {
                 ProfessorModel prof = _context.professorDb.Find(id);
                 _context.professorDb.Remove(prof);
@@ -165,7 +164,7 @@ namespace Software2_project.Controllers
 
         public ActionResult listCourses()
         {
-            if (Session["username"] != null)
+            if (Session["username"] != null && Session["role"].Equals("admin"))
             {
                 var courses = _context.courseDb.ToList();
                 return View(courses);
@@ -176,7 +175,7 @@ namespace Software2_project.Controllers
 
         public ActionResult deleteCourse(short id)
         {
-            if (Session["username"] != null)
+            if (Session["username"] != null && Session["role"].Equals("admin"))
             {
                 CourseModel course = _context.courseDb.Find(id);
                 if (course == null)
@@ -191,7 +190,7 @@ namespace Software2_project.Controllers
         [HttpPost, ActionName("deleteProfessor")]
         public ActionResult deleteConfirmedCourse(short id)
         {
-            if (Session["usename"] != null)
+            if (Session["usename"] != null && Session["role"].Equals("admin"))
             {
                 CourseModel course = _context.courseDb.Find(id);
                 _context.courseDb.Remove(course);
