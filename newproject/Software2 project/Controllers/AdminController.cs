@@ -149,7 +149,7 @@ namespace Software2_project.Controllers
         [HttpPost, ActionName("deleteProfessor")]
         public ActionResult deleteConfirmedProf(short id)
         {
-            if(Session["usename"] != null && Session["role"].Equals("admin"))
+            if(Session["username"] != null && Session["role"].Equals("admin"))
             {
                 ProfessorModel prof = _context.professorDb.Find(id);
                 _context.professorDb.Remove(prof);
@@ -173,7 +173,7 @@ namespace Software2_project.Controllers
             else return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult deleteCourse(short id)
+        public ActionResult deleteCourse(int id)
         {
             if (Session["username"] != null && Session["role"].Equals("admin"))
             {
@@ -187,10 +187,10 @@ namespace Software2_project.Controllers
             else return RedirectToAction("Index", "Home");
         }
 
-        [HttpPost, ActionName("deleteProfessor")]
-        public ActionResult deleteConfirmedCourse(short id)
+        [HttpPost, ActionName("deleteCourse")]
+        public ActionResult deleteConfirmedCourse(int id)
         {
-            if (Session["usename"] != null && Session["role"].Equals("admin"))
+            if (Session["username"] != null && Session["role"].Equals("admin"))
             {
                 CourseModel course = _context.courseDb.Find(id);
                 _context.courseDb.Remove(course);
