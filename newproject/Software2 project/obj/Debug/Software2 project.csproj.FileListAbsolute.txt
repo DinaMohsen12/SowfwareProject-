@@ -435,3 +435,4 @@ E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Sof
 E:\projects\Software\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2 project.pdb
 E:\1\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.Add_role_attribute_to_every_user.resources
 E:\1\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.CourseModel.resources
+E:\1\SowfwareProject-\newproject\Software2 project\obj\Debug\Software2_project.Migrations.adding_DataAnnotation_to_Course_Attribute.resources

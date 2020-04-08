@@ -52,11 +52,37 @@ namespace Software2_project.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        public ActionResult editStudent(short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("admin"))
+            {
+                var student = _context.studentDb.SingleOrDefault(c => c.id == id);
+                if (student == null)
+                    return HttpNotFound();
+
+                return View("editStudent", student);
+            }
+
+            return RedirectToAction("Login", "Home");
+        }
+
         public ActionResult CreateStudent(StudentModel student)
         {
             if (student.id == 0)
             {
                 _context.studentDb.Add(student);
+            }
+
+            else
+            {
+                var studentInDb = _context.studentDb.Single(p => p.id == student.id);
+                studentInDb.name = student.name;
+                studentInDb.phone = student.phone;
+                studentInDb.e_mail = student.e_mail;
+                studentInDb.address = student.address;
+                studentInDb.gender = student.gender;
+                studentInDb.age = student.age;
+                studentInDb.username = student.username;
             }
             _context.SaveChanges();
             return RedirectToAction("ListStudents", "Admin");
