@@ -137,11 +137,38 @@ namespace Software2_project.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        public ActionResult editProfessor(short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("admin"))
+            {
+                var professor = _context.professorDb.SingleOrDefault(c => c.id == id);
+                if (professor == null)
+                    return HttpNotFound();
+
+                return View("editProfessor", professor);
+            }
+
+            return RedirectToAction("Login", "Home");
+        }
+
         public ActionResult CreateProfessor(ProfessorModel professor)
         {
             if (professor.id == 0)
             {
                 _context.professorDb.Add(professor);
+            }
+
+            else
+            {
+                var peofessorInDb = _context.professorDb.Single(p => p.id == professor.id);
+                peofessorInDb.name = professor.name;
+                peofessorInDb.phone = professor.phone;
+                peofessorInDb.e_mail = professor.e_mail;
+                peofessorInDb.address = professor.address;
+                peofessorInDb.salary = professor.salary;
+                peofessorInDb.gender = professor.gender;
+                peofessorInDb.age = professor.age;
+                peofessorInDb.username = professor.username;
             }
             _context.SaveChanges();
             return RedirectToAction("ListProfessors", "Admin");
@@ -199,7 +226,7 @@ namespace Software2_project.Controllers
             else return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult deleteCourse(int id)
+        public ActionResult deleteCourse(short id)
         {
             if (Session["username"] != null && Session["role"].Equals("admin"))
             {
@@ -214,7 +241,7 @@ namespace Software2_project.Controllers
         }
 
         [HttpPost, ActionName("deleteCourse")]
-        public ActionResult deleteConfirmedCourse(int id)
+        public ActionResult deleteConfirmedCourse(short id)
         {
             if (Session["username"] != null && Session["role"].Equals("admin"))
             {

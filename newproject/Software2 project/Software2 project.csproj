@@ -157,6 +157,10 @@
     <Compile Include="Migrations\202004082044052_adding_DataAnnotation_to_Course_Attribute.designer.cs">
       <DependentUpon>202004082044052_adding_DataAnnotation_to_Course_Attribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004101832423_changing_some_attributes_data_types_in_course_professor.cs" />
+    <Compile Include="Migrations\202004101832423_changing_some_attributes_data_types_in_course_professor.designer.cs">
+      <DependentUpon>202004101832423_changing_some_attributes_data_types_in_course_professor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\CourseModel.cs" />
@@ -214,6 +218,7 @@
     <Content Include="Views\Admin\deleteCourse.cshtml" />
     <Content Include="Views\Shared\HomeLayout.cshtml" />
     <Content Include="Views\Admin\editStudent.cshtml" />
+    <Content Include="Views\Admin\editProfessor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -249,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004082044052_adding_DataAnnotation_to_Course_Attribute.resx">
       <DependentUpon>202004082044052_adding_DataAnnotation_to_Course_Attribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004101832423_changing_some_attributes_data_types_in_course_professor.resx">
+      <DependentUpon>202004101832423_changing_some_attributes_data_types_in_course_professor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

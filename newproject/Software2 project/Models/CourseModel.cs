@@ -9,7 +9,7 @@ namespace Software2_project.Models
     public class CourseModel
     {
 
-        public int id { get; set; }
+        public short id { get; set; }
         [Required]
         [Display(Name ="Course Code")]
         public string code { get; set; }
