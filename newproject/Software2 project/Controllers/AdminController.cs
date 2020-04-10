@@ -215,6 +215,32 @@ namespace Software2_project.Controllers
 
         //-------------------------------------------------Course----------------------------------------
 
+        public ActionResult editCourse(short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("admin"))
+            {
+                var course = _context.courseDb.SingleOrDefault(c => c.id == id);
+                if (course == null)
+                    return HttpNotFound();
+
+                return View("editCourse", course);
+            }
+
+            return RedirectToAction("Login", "Home");
+        }
+
+        public ActionResult CreateCourse(CourseModel course)
+        {
+            if(course.id != 0)
+            {
+                var courseInDb = _context.courseDb.Single(p => p.id == course.id);
+                courseInDb.name = course.name;
+                courseInDb.code = course.code;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("ListCourses", "Admin");
+        }
+
         public ActionResult listCourses()
         {
             if (Session["username"] != null && Session["role"].Equals("admin"))

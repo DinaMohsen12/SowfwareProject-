@@ -219,6 +219,7 @@
     <Content Include="Views\Shared\HomeLayout.cshtml" />
     <Content Include="Views\Admin\editStudent.cshtml" />
     <Content Include="Views\Admin\editProfessor.cshtml" />
+    <Content Include="Views\Admin\editCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
