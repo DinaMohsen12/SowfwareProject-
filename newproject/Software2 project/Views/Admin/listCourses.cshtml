@@ -13,16 +13,18 @@
         <tr class="table-active">
             <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">Code</th>
             <th scope="col" style="text-align:center">Name</th>
+            <th scope="col" style="text-align: center;width: 5%"></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var course in Model)
         {
 
-            <tr data-href="@Url.Action("editCourse", "Admin", new { id = course.id }, null)">
-                <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@course.code</td>
-                <td scope="row">@course.name</td>
-            </tr>
+        <tr data-href="@Url.Action("editCourse", "Admin", new { id = course.id }, null)">
+            <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@course.code</td>
+            <td scope="row">@course.name</td>
+            <td scope="row" style="color:#cb0000; font-weight:bold">@Html.ActionLink("Delete", "deleteCourse", new { id = course.id })</td>
+        </tr>
         }
     </tbody>
 </table>

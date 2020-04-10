@@ -36,7 +36,7 @@ namespace Software2_project.Models
 
         [Required]
         [Display(Name = "Salary")]
-        public float salary { get; set; }
+        public double salary { get; set; }
 
         [Required]
         [EmailAddress]
