@@ -228,7 +228,14 @@ namespace Software2_project.Controllers
 
             return RedirectToAction("Login", "Home");
         }
+        public ActionResult addCourse() {
+            if (Session["username"] != null && Session["role"].Equals("admin"))
+                return View();
 
+            return RedirectToAction("Login", "Home");
+
+        }
+        [HttpPost]
         public ActionResult CreateCourse(CourseModel course)
         {
             if(course.id != 0)
@@ -237,6 +244,13 @@ namespace Software2_project.Controllers
                 courseInDb.name = course.name;
                 courseInDb.code = course.code;
             }
+            else
+            {
+                _context.courseDb.Add(course);
+
+
+            }
+                 
             _context.SaveChanges();
             return RedirectToAction("ListCourses", "Admin");
         }

@@ -1,0 +1,33 @@
+﻿@model Software2_project.Models.CourseModel
+@{
+    ViewBag.Title = "addCourse";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<h2 id="Pagetitle" style="text-align:center; font-weight:bold; width:32%; margin-right:auto; margin-left:auto">
+    <span style="border-bottom:1.5px solid;">Add New Course</span>
+</h2>
+@using (Html.BeginForm("CreateCourse", "Admin"))
+{
+    <div class="form-group" style="font-weight: bold; margin-top: 20px">
+        @Html.LabelFor(m => m.code)
+        @Html.TextBoxFor(m => m.code, new { @class = "form-control", placeholder = "Enter Course Code" })
+        @Html.ValidationMessageFor(m => m.code)
+    </div>
+
+    <div class="form-group" style="font-weight:bold">
+        @Html.LabelFor(m => m.name)
+        @Html.TextBoxFor(m => m.name, new { @class = "form-control", placeholder = "Enter Course Name" })
+        @Html.ValidationMessageFor(m => m.name)
+    </div>
+
+    @Html.HiddenFor(m => m.id)
+
+    <button type="submit" class="btn btn-primary" style="border-radius:10px;margin-top:10px">Submit</button>
+    <button type="reset" class="btn btn-dark" style="background-color:#ae0303; border-radius:10px;margin-top:10px; float:right">Reset form</button>
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
