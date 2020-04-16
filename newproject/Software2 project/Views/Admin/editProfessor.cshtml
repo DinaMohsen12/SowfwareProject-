@@ -1,4 +1,4 @@
-﻿@model Software2_project.Models.ProfessorModel
+﻿@model Software2_project.ViewModel.ProfessorCourseViewModel
 @{
     ViewBag.Title = "editProfessor";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -8,64 +8,94 @@
     <span style="border-bottom:1.5px solid;">Update Professor</span>
 </h2>
 
-@using (Html.BeginForm("CreateProfessor", "Admin"))
+@using (Html.BeginForm("updateProfessor", "Admin"))
 {
     <div class="form-group" style="font-weight: bold; margin-top: 20px">
-        @Html.LabelFor(m => m.name)
-        @Html.TextBoxFor(m => m.name, new { @class = "form-control", placeholder = "Enter Professor Name" })
-        @Html.ValidationMessageFor(m => m.name)
+        @Html.LabelFor(m => m.professor.name)
+        @Html.TextBoxFor(m => m.professor.name, new { @class = "form-control", placeholder = "Enter Professor Name" })
+        @Html.ValidationMessageFor(m => m.professor.name)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.username)
-        @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Enter Professor Username" })
-        @Html.ValidationMessageFor(m => m.username)
+        @Html.LabelFor(m => m.professor.username)
+        @Html.TextBoxFor(m => m.professor.username, new { @class = "form-control", placeholder = "Enter Professor Username" })
+        @Html.ValidationMessageFor(m => m.professor.username)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.age)
-        @Html.TextBoxFor(m => m.age, new { @class = "form-control", placeholder = "Enter Professor Age" })
-        @Html.ValidationMessageFor(m => m.age)
+        @Html.LabelFor(m => m.professor.age)
+        @Html.TextBoxFor(m => m.professor.age, new { @class = "form-control", placeholder = "Enter Professor Age" })
+        @Html.ValidationMessageFor(m => m.professor.age)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.salary)
-        @Html.TextBoxFor(m => m.salary, new { @class = "form-control", placeholder = "Enter Professor Salary" })
-        @Html.ValidationMessageFor(m => m.salary)
+        @Html.LabelFor(m => m.professor.salary)
+        @Html.TextBoxFor(m => m.professor.salary, new { @class = "form-control", placeholder = "Enter Professor Salary" })
+        @Html.ValidationMessageFor(m => m.professor.salary)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.e_mail)
-        @Html.TextBoxFor(m => m.e_mail, new { @class = "form-control", placeholder = "Enter Professor E-mail" })
-        @Html.ValidationMessageFor(m => m.e_mail)
+        @Html.LabelFor(m => m.professor.e_mail)
+        @Html.TextBoxFor(m => m.professor.e_mail, new { @class = "form-control", placeholder = "Enter Professor E-mail" })
+        @Html.ValidationMessageFor(m => m.professor.e_mail)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.address)
-        @Html.TextBoxFor(m => m.address, new { @class = "form-control", placeholder = "Enter Professor Address" })
-        @Html.ValidationMessageFor(m => m.address)
+        @Html.LabelFor(m => m.professor.address)
+        @Html.TextBoxFor(m => m.professor.address, new { @class = "form-control", placeholder = "Enter Professor Address" })
+        @Html.ValidationMessageFor(m => m.professor.address)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.phone)
-        @Html.TextBoxFor(m => m.phone, new { @class = "form-control", placeholder = "Enter Professor Phone" })
-        @Html.ValidationMessageFor(m => m.phone)
+        @Html.LabelFor(m => m.professor.phone)
+        @Html.TextBoxFor(m => m.professor.phone, new { @class = "form-control", placeholder = "Enter Professor Phone" })
+        @Html.ValidationMessageFor(m => m.professor.phone)
     </div>
 
     <div class="form-group" style="font-weight:bold">
-        @Html.LabelFor(m => m.gender)
-        @Html.DropDownListFor(m => m.gender, new List<SelectListItem>
+        @Html.LabelFor(m => m.professor.gender)
+        @Html.DropDownListFor(m => m.professor.gender, new List<SelectListItem>
         {
             new SelectListItem{Text="Male", Value="male"},
             new SelectListItem{Text="Female", Value="female"},
         }, "Select Gender", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.gender)
+        @Html.ValidationMessageFor(m => m.professor.gender)
     </div>
 
-    @Html.HiddenFor(m => m.id)
+    @Html.HiddenFor(m => m.professor.id)
+
+    <fieldset style="border:1.5px solid rgba(230, 115, 0, 1); border-radius:25px; padding:10px;">
+        <legend style="color:rgb(230, 115, 0); font-weight:bold">Courses</legend>
+        <div class="grid" style="font-weight:bold">
+            @for (int i = 0; i < Model.courses.Count; i++)
+            {
+                if (Model.checkedCourses.Contains(Model.courses[i]))
+                {
+                    Model.courses[i].IsChecked = true;
+                }
+
+                <label class="checkbox-inline">
+                    @Html.CheckBoxFor(m => Model.courses[i].IsChecked)
+                    @Model.courses[i].name
+                    @Html.HiddenFor(m => m.courses[i].id)
+                    @Html.HiddenFor(m => m.courses[i].code)
+                    @Html.HiddenFor(m => m.courses[i].name)
+                </label>
+            }
+        </div>
+    </fieldset>
 
     <button type="submit" class="btn btn-primary" style="border-radius:10px;margin-top:10px">Save New Data</button>
 }
+
+<style>
+    .grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 25px
+    }
+</style>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

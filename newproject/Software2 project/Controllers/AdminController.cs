@@ -168,34 +168,58 @@ namespace Software2_project.Controllers
             if (Session["username"] != null && Session["role"].Equals("admin"))
             {
                 var professor = _context.professorDb.SingleOrDefault(c => c.id == id);
+                var listCheckedCourses = professor.courseModel.ToList();
+
+                var viewModel = new ProfessorCourseViewModel
+                {
+                    professor = professor,
+                    courses = _context.courseDb.ToList(),
+                    checkedCourses = listCheckedCourses
+                };
+
                 if (professor == null)
                     return HttpNotFound();
 
-                return View("editProfessor", professor);
+                return View("editProfessor", viewModel);
             }
 
             return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult CreateProfessor(ProfessorModel professor)
+        [HttpPost]
+        public ActionResult updateProfessor(ProfessorCourseViewModel viewModel)
         {
-            if (professor.id == 0)
+            var professorInDb = _context.professorDb.Include(p => p.courseModel).Single(p => p.id == viewModel.professor.id);
+            professorInDb.name = viewModel.professor.name;
+            professorInDb.phone = viewModel.professor.phone;
+            professorInDb.e_mail = viewModel.professor.e_mail;
+            professorInDb.address = viewModel.professor.address;
+            professorInDb.gender = viewModel.professor.gender;
+            professorInDb.age = viewModel.professor.age;
+            professorInDb.username = viewModel.professor.username;
+            professorInDb.salary = viewModel.professor.salary;
+
+            professorInDb.courseModel.Clear();
+            for (int i = 0; i < viewModel.courses.Count; i++)
             {
-                _context.professorDb.Add(professor);
+                if (viewModel.courses[i].IsChecked == true)
+                {
+                    CourseModel course = viewModel.courses[i];
+                    var courseInDb = _context.courseDb.Single(p => p.id == course.id);
+                    courseInDb.name = course.name;
+                    courseInDb.code = course.code;
+                    professorInDb.courseModel.Add(courseInDb);
+                }
             }
 
-            else
-            {
-                var peofessorInDb = _context.professorDb.Single(p => p.id == professor.id);
-                peofessorInDb.name = professor.name;
-                peofessorInDb.phone = professor.phone;
-                peofessorInDb.e_mail = professor.e_mail;
-                peofessorInDb.address = professor.address;
-                peofessorInDb.salary = professor.salary;
-                peofessorInDb.gender = professor.gender;
-                peofessorInDb.age = professor.age;
-                peofessorInDb.username = professor.username;
-            }
+            _context.SaveChanges();
+            return RedirectToAction("listProfessors", "Admin");
+        }
+
+        public ActionResult CreateProfessor(ProfessorModel professor)
+        {
+            _context.professorDb.Add(professor);
+            
             _context.SaveChanges();
             return RedirectToAction("ListProfessors", "Admin");
         }
