@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using Software2_project.Models;
 using Software2_project.Context;
+using Software2_project.ViewModel;
+using System.Data.Entity;
 
 namespace Software2_project.Controllers
 {
@@ -57,33 +59,57 @@ namespace Software2_project.Controllers
             if (Session["username"] != null && Session["role"].Equals("admin"))
             {
                 var student = _context.studentDb.SingleOrDefault(c => c.id == id);
+                var listCheckedCourses = student.courseModel.ToList();
+
+                var viewModel = new StudentCourseViewModel
+                {
+                    student = student,
+                    courses = _context.courseDb.ToList(),
+                    checkedCourses =  listCheckedCourses
+                };
+
                 if (student == null)
                     return HttpNotFound();
 
-                return View("editStudent", student);
+                return View("editStudent", viewModel);
             }
 
             return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult CreateStudent(StudentModel student)
+        [HttpPost]
+        public ActionResult updateStudent(StudentCourseViewModel viewModel)
         {
-            if (student.id == 0)
+            var studentInDb = _context.studentDb.Include(p => p.courseModel).Single(p => p.id == viewModel.student.id);
+            studentInDb.name = viewModel.student.name;
+            studentInDb.phone = viewModel.student.phone;
+            studentInDb.e_mail = viewModel.student.e_mail;
+            studentInDb.address = viewModel.student.address;
+            studentInDb.gender = viewModel.student.gender;
+            studentInDb.age = viewModel.student.age;
+            studentInDb.username = viewModel.student.username;
+
+            studentInDb.courseModel.Clear();
+            for (int i = 0; i < viewModel.courses.Count; i++)
             {
-                _context.studentDb.Add(student);
+                if (viewModel.courses[i].IsChecked == true)
+                {
+                    CourseModel course = viewModel.courses[i];
+                    var courseInDb = _context.courseDb.Single(p => p.id == course.id);
+                    courseInDb.name = course.name;
+                    courseInDb.code = course.code;
+                    studentInDb.courseModel.Add(courseInDb);
+                }
             }
 
-            else
-            {
-                var studentInDb = _context.studentDb.Single(p => p.id == student.id);
-                studentInDb.name = student.name;
-                studentInDb.phone = student.phone;
-                studentInDb.e_mail = student.e_mail;
-                studentInDb.address = student.address;
-                studentInDb.gender = student.gender;
-                studentInDb.age = student.age;
-                studentInDb.username = student.username;
-            }
+            _context.SaveChanges();
+            return RedirectToAction("ListStudents", "Admin");
+        }
+
+        public ActionResult CreateStudent(StudentModel student)
+        {
+            _context.studentDb.Add(student);
+
             _context.SaveChanges();
             return RedirectToAction("ListStudents", "Admin");
         }
