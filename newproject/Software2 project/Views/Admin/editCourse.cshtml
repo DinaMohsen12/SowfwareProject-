@@ -25,7 +25,49 @@
     @Html.HiddenFor(m => m.id)
 
     <button type="submit" class="btn btn-primary" style="border-radius:10px;margin-top:10px">Save New Data</button>
+
+    if (Model.professorModels.Count == 0)
+    {
+        <h5 style="margin-top:25px; color:rgb(230,115,0);">
+            <span style="border:3px groove white; padding:7px; border-radius:15px">No professors has been assigned to this course, yet.</span>
+        </h5>
+        @Html.ActionLink("Click to assign professor", "listProfessors", "Admin")
+    }
+
+    else
+    {
+        <table class="table table-hover" style="margin-right:auto; margin-left:auto; margin-top:25px">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">ID</th>
+                    <th scope="col" style="text-align:center">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var professor in Model.professorModels)
+                {
+
+                    <tr data-href="@Url.Action("editProfessor", "Admin", new { id = professor.id }, null)">
+                        <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@professor.id</td>
+                        <td scope="row">@professor.name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

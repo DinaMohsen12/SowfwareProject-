@@ -297,8 +297,6 @@ namespace Software2_project.Controllers
             else
             {
                 _context.courseDb.Add(course);
-
-
             }
                  
             _context.SaveChanges();
