@@ -33,7 +33,11 @@ namespace Software2_project.Controllers
         public ActionResult LoggedIn()
         {
             if (Session["username"] != null && Session["role"].Equals("admin"))
-                return View();
+            {
+                short id = (short)Session["id"];
+                var admin = _context.adminDb.Single(a => a.id == id);
+                return View(admin);
+            }
             
             return RedirectToAction("Login", "Home");
         }

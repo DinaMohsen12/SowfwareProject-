@@ -8,27 +8,47 @@
     <span style="border-bottom:1.5px solid;">List All Professors</span>
 </h2>
 
-<table class="table table-hover" style="margin-right:auto; margin-left:auto">
-    <thead>
-        <tr class="table-active">
-            <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">ID</th>
-            <th scope="col" style="text-align:center">Name</th>
-            <th scope="col" style="text-align: center;width: 5%"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var professor in Model)
-        {
-
-            <tr data-href="@Url.Action("editProfessor", "Admin", new { id = professor.id }, null)">
-                <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@professor.id</td>
-                <td scope="row">@professor.name</td>
-                <td scope="row" style="color:#cb0000; font-weight:bold">@Html.ActionLink("Delete", "deleteProfessor", new { id = professor.id })</td>
+<div style="width: 100%; margin-right:auto; margin-left: auto; margin-top:25px" class="container">
+    <img src="~/search.png" height="35" width="35" style="background-color:white; border:1.5px solid #1d2156; border-radius:100%; padding:6px 6px 6px 6px" />
+    <div class="form-group" style="width:95%; margin-right:auto; margin-left: auto; border-radius:100%; display:inline-block">
+        <input type="text" class="search form-control" placeholder="Search for a professor" />
+    </div>
+    <span class="counter"></span>
+    <table class="table table-hover results" style="margin-right:auto; margin-left:auto">
+        <thead>
+            <tr class="table-active">
+                <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">ID</th>
+                <th scope="col" style="text-align:center">Name</th>
+                <th scope="col" style="text-align: center;width: 5%"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var professor in Model)
+            {
 
+                <tr data-href="@Url.Action("editProfessor", "Admin", new { id = professor.id }, null)">
+                    <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@professor.id</td>
+                    <td scope="row">@professor.name</td>
+                    <td scope="row" style="color:#cb0000; font-weight:bold">@Html.ActionLink("Delete", "deleteProfessor", new { id = professor.id })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .results tr[visible='false'], .no-result {
+        display: none
+    }
+
+    .results tr[visible='true'] {
+        display: table-row
+    }
+
+    .counter {
+        color: #acacac
+    }
+</style>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -42,3 +62,33 @@
     });
 </script>
 
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.search').keyup(function () {
+            var searchTerm = $('.search').val();
+            var searchItems = $('.results tbody').children('tr');
+            var searchSplit = searchTerm.replace(/ /g, "'):containsi('");
+            $.extend($.expr[':'], {
+                'containsi': function (elem, i, match, array) {
+                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+            })
+            $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function () {
+                $(this).attr('visible', 'false');
+            })
+            $(".results tbody tr:containsi('" + searchSplit + "')").each(function () {
+                $(this).attr('visible', 'true');
+            })
+            var professorCount = $('.results tbody tr[visible="true"]').length;
+            $('.counter').text(professorCount + " Student(s)");
+            if (professorCount == 0) {
+                $('.no-result').show();
+            } else {
+                $('.no-result').hide();
+            }
+        })
+    })
+</script>

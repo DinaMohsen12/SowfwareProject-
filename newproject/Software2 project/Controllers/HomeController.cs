@@ -8,8 +8,10 @@ using Software2_project.Context;
 
 namespace Software2_project.Controllers
 {
+    
     public class HomeController : Controller
     {
+        examinationContext DB = new examinationContext();
         public ActionResult Index()
         {
             return View();
@@ -28,7 +30,7 @@ namespace Software2_project.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This web application helps you to manage college and its exams.";
 
             return View();
         }
@@ -65,6 +67,7 @@ namespace Software2_project.Controllers
                     {
                         Session["username"] = logAdmin.username;
                         Session["role"] = logAdmin.role;
+                        Session["id"] = logAdmin.id;
                         return RedirectToAction("LoggedIn", "Admin");
                     }
                     else
@@ -74,6 +77,12 @@ namespace Software2_project.Controllers
                 }
             }
             return View("Login");
+        }
+
+        public ActionResult listCourses()
+        {
+            var courses = _context.courseDb.ToList();
+            return View(courses);
         }
     }
 }

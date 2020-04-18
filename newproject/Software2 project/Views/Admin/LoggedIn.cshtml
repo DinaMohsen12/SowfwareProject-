@@ -1,8 +1,9 @@
-﻿
+﻿@model Software2_project.Models.AdminModel
 @{
     ViewBag.Title = "LoggedIn";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Admin</h2>
+<h2>Welcome <span style="font-weight:bold">@Model.name</span></h2>
+<p>Have a nice day :)</p>
 
