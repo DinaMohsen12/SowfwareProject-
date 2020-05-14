@@ -23,6 +23,6 @@ namespace Software2_project.Models
         [NotMapped]
         public virtual bool IsChecked { get; set; }
 
-
+        public virtual ICollection<QuestionModel> questionModels { get; set; }
     }
 }
