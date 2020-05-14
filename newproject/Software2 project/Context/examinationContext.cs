@@ -13,6 +13,8 @@ namespace Software2_project.Context
         public DbSet<StudentModel> studentDb { get; set; }
         public DbSet<ProfessorModel> professorDb { get; set; }
         public DbSet<CourseModel> courseDb { get; set; }
+        public DbSet<QuestionModel> questionDb { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

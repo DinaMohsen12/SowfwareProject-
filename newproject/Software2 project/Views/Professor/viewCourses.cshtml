@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Software2_project.Models.CourseModel>
+
+@{
+    ViewBag.Title = "viewCourses";
+    Layout = "~/Views/Shared/ProfessorLayout.cshtml";
+}
+
+<div class="container" style="font-weight:bold">
+    <div class="row">
+        @foreach (var course in Model)
+        {
+            <div class="col-12 col-sm-12 col-lg-6">
+                <a href="@Url.Action("AddQuestion", "Professor" ,new { id = course.id }, null)" style="color:#fff">
+                    <div class="border-dark mb-3" style="border-radius:20px; overflow:hidden; background-image: linear-gradient(rgb(225, 100, 0) , rgb(72,74,104));">
+                        <div class="card-header">@course.code</div>
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-weight:bold">@course.name</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+<style>
+    .grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 25px
+    }
+
+    a:hover {
+        text-decoration: underline
+    }
+</style>

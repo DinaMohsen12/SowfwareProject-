@@ -1,0 +1,95 @@
+﻿@model Software2_project.ViewModel.QuestionCourseViewModel
+@{
+    ViewBag.Title = "addQuestion";
+    Layout = "~/Views/Shared/ProfessorLayout.cshtml";
+}
+
+<h2 style="text-align:center; font-weight:bold; margin-right:auto; margin-left:auto; margin-bottom:12px;">
+    <span style="border-bottom:1.5px solid;">Add New Question (@Model.course.name)</span>
+</h2>
+
+@using (Html.BeginForm("CreateQuestion", "Professor"))
+{
+    <div class="form-group" style="width:100%; font-weight: bold; margin-top: 20px">
+        @Html.LabelFor(m => m.question.question)
+        @Html.TextAreaFor(m => m.question.question, 5, 20, new { @class = "form-control", placeholder = "Enter The Question", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.question.question)
+    </div>
+
+    <div class="container" style="font-weight:bold">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-group" style="font-weight:bold;">
+                    @Html.LabelFor(m => m.question.answer1)
+                    @Html.TextAreaFor(m => m.question.answer1, 2, 20, new { @class = "form-control", placeholder = "Enter First Choice" })
+                    @Html.ValidationMessageFor(m => m.question.answer1)
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-group" style="font-weight:bold;">
+                    @Html.LabelFor(m => m.question.answer2)
+                    @Html.TextAreaFor(m => m.question.answer2, 2, 20, new { @class = "form-control", placeholder = "Enter Second Choice" })
+                    @Html.ValidationMessageFor(m => m.question.answer2)
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-group" style="font-weight:bold;">
+                    @Html.LabelFor(m => m.question.answer3)
+                    @Html.TextAreaFor(m => m.question.answer3, 2, 20, new { @class = "form-control", placeholder = "Enter Third Choice" })
+                    @Html.ValidationMessageFor(m => m.question.answer3)
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-group" style="font-weight:bold;">
+                    @Html.LabelFor(m => m.question.answer4)
+                    @Html.TextAreaFor(m => m.question.answer4, 2, 20, new { @class = "form-control", placeholder = "Enter Fourth Choice" })
+                    @Html.ValidationMessageFor(m => m.question.answer4)
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-group" style="font-weight:bold;">
+                    @Html.LabelFor(m => m.question.answer5)
+                    @Html.TextAreaFor(m => m.question.answer5, 2, 20, new { @class = "form-control", placeholder = "Enter Fifth Choice" })
+                    @Html.ValidationMessageFor(m => m.question.answer5)
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group has-success" style="font-weight:bold; color: #2fcc1b">
+            @Html.LabelFor(m => m.question.rightAnswer)
+            @Html.TextAreaFor(m => m.question.rightAnswer, 2, 20, new { @class = "form-control is-valid", placeholder = "Re-Enter The Correct Answer" })
+            @Html.ValidationMessageFor(m => m.question.rightAnswer)
+        </div>
+    </div>
+
+    @Html.HiddenFor(m => m.question.CourseId)
+    @Html.HiddenFor(m => m.question.id)
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-6">
+                <button name="saveE" type="submit" class="btn btn-primary" style="width: 100%; border-radius:10px;margin-top:10px">Save Question</button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-6">
+                <button name="newQ" type="submit" class="btn btn-secondary" style="width: 100%; font-weight:bold; border-radius:10px;margin-top:10px;">+ Add Question</button>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 25px
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
