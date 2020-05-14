@@ -55,13 +55,15 @@ namespace Software2_project.Controllers
                     {
                         Session["username"] = logStudent.username;
                         Session["role"] = logStudent.role;
-                        return RedirectToAction("Index", "Home");
+                        Session["id"] = logStudent.id;
+                        return RedirectToAction("LoggedIn", "Student");
                     }
                     else if (logProfessor != null)
                     {
                         Session["username"] = logProfessor.username;
                         Session["role"] = logProfessor.role;
-                        return RedirectToAction("Index", "Home");
+                        Session["id"] = logProfessor.id;
+                        return RedirectToAction("LoggedIn", "Professor");
                     }
                     else if (logAdmin != null)
                     {
