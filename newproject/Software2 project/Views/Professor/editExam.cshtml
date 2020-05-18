@@ -1,0 +1,89 @@
+﻿@model Software2_project.ViewModel.CourseQuestionsViewModel
+@{
+    ViewBag.Title = "editExam";
+    Layout = "~/Views/Shared/ProfessorLayout.cshtml";
+}
+
+
+<h2 style="text-align:center; font-weight:bold; margin-right:auto; margin-left:auto; margin-bottom:12px;">
+    <span style="border-bottom:1.5px solid;">Update Questions (@Model.course.name)</span>
+</h2>
+
+@using (Html.BeginForm("updateExam", "Professor"))
+{
+    for (int i = 0; i < Model.questions.Count(); i++)
+    {
+        <div class="form-group" style="width: 100%; font-weight: bold; margin-top: 20px">
+            @Html.LabelFor(m => m.questions[i].question) @(i + 1)
+            @Html.TextAreaFor(m => m.questions[i].question, 5, 20, new { @class = "form-control", placeholder = "Enter The Question" })
+            @Html.ValidationMessageFor(m => m.questions[i].question)
+        </div>
+
+        <div class="grid" style="font-weight:bold">
+            <div class="form-group" style="font-weight:bold">
+                @Html.LabelFor(m => m.questions[i].answer1)
+                @Html.TextAreaFor(m => m.questions[i].answer1, 2, 20, new { @class = "form-control", placeholder = "Enter First Choice" })
+                @Html.ValidationMessageFor(m => m.questions[i].answer1)
+            </div>
+
+            <div id="gone" class="form-group" style="font-weight:bold">
+                @Html.LabelFor(m => m.questions[i].answer2)
+                @Html.TextAreaFor(m => m.questions[i].answer2, 2, 20, new { @class = "form-control", placeholder = "Enter Second Choice" })
+                @Html.ValidationMessageFor(m => m.questions[i].answer2)
+            </div>
+
+            <div class="form-group" style="font-weight:bold">
+                @Html.LabelFor(m => m.questions[i].answer3)
+                @Html.TextAreaFor(m => m.questions[i].answer3, 2, 20, new { @class = "form-control", placeholder = "Enter Third Choice" })
+                @Html.ValidationMessageFor(m => m.questions[i].answer3)
+            </div>
+
+            <div class="form-group" style="font-weight:bold">
+                @Html.LabelFor(m => m.questions[i].answer4)
+                @Html.TextAreaFor(m => m.questions[i].answer4, 2, 20, new { @class = "form-control", placeholder = "Enter Fourth Choice" })
+                @Html.ValidationMessageFor(m => m.questions[i].answer4)
+            </div>
+
+            <div class="form-group" style="font-weight:bold">
+                @Html.LabelFor(m => m.questions[i].answer5)
+                @Html.TextAreaFor(m => m.questions[i].answer5, 2, 20, new { @class = "form-control", placeholder = "Enter Fifth Choice" })
+                @Html.ValidationMessageFor(m => m.questions[i].answer5)
+            </div>
+            <br />
+            <div class="form-group has-success" style="font-weight:bold; color: #2fcc1b">
+                @Html.LabelFor(m => m.questions[i].rightAnswer)
+                @Html.TextAreaFor(m => m.questions[i].rightAnswer, 2, 20, new { @class = "form-control is-valid", placeholder = "Re-Enter The Correct Answer" })
+                @Html.ValidationMessageFor(m => m.questions[i].rightAnswer)
+            </div>
+
+            <div></div>
+
+            <div style="padding-top:50px">
+                <a class="btn btn-danger form-control" style="width:176px;
+                                                              border-radius:10px;
+                                                              margin-top:10px;
+                                                              float:right"
+                   href="@Url.Action("deleteQuestion","Professor", new { id = Model.questions[i].id }, null)">Delete Question</a>
+            </div>
+        </div>
+
+        @Html.HiddenFor(m => m.questions[i].CourseId)
+        @Html.HiddenFor(m => m.questions[i].id)
+        <hr style="background-color:rgb(235, 100, 0); height: 2px" />
+    }
+    if (Model.questions.Count >= 1)
+    { <button type="submit" class="btn btn-primary" style="border-radius:10px;margin-top:10px">Save New Data</button>}
+}
+
+<style>
+    .grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 25px
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
