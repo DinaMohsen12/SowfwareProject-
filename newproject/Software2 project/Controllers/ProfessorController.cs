@@ -78,5 +78,46 @@ namespace Software2_project.Controllers
 
             else return null;
         }
+
+        public ActionResult editExam(short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("professor"))
+            {
+                var questions = _context.questionDb.Where(q => q.CourseId == id).ToList();
+                CourseModel course = _context.courseDb.Single(c => c.id == id);
+
+                var viewModel = new CourseQuestionsViewModel
+                {
+                    course = course,
+                    questions = questions
+                };
+
+                return View(viewModel);
+            }
+
+            return RedirectToAction("login", "Home");
+        }
+
+        public ActionResult updateExam(List<QuestionModel> questions)
+        {
+            foreach (var counter in questions)
+            {
+                var question = _context.questionDb.Where(q => q.id == counter.id).FirstOrDefault();
+                question.question = counter.question;
+                question.answer1 = counter.answer1;
+                question.answer2 = counter.answer2;
+                question.answer3 = counter.answer3;
+                question.answer4 = counter.answer4;
+                question.answer5 = counter.answer5;
+                question.rightAnswer = counter.rightAnswer;
+                question.CourseId = counter.CourseId;
+            }
+
+            _context.SaveChanges();
+            var professorId = (short)Session["id"];
+            ProfessorModel professor = _context.professorDb.Find(professorId);
+            var courses = professor.courseModel.ToList();
+            return View("listExams", courses);
+        }
     }
 }
