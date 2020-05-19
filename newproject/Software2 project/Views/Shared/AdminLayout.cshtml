@@ -76,7 +76,7 @@
                 <li class="nav-item">
                     @if (Session["username"] != null)
                     {
-                        <a style="font-weight:bold" class="nav-link" href="@Url.Action("editProfessorProfile", "Professor",new { id = Session["id"] },null)">Profile</a>
+                        <a style="font-weight:bold" class="nav-link" href="@Url.Action("editAdminProfile", "Admin",new { id = Session["id"] },null)">Profile</a>
                     }
                 </li>
                 <li class="nav-item">

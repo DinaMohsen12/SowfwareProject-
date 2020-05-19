@@ -119,5 +119,37 @@ namespace Software2_project.Controllers
             var courses = professor.courseModel.ToList();
             return View("listExams", courses);
         }
+
+        public ActionResult editProfessorProfile(short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("professor"))
+            {
+                ProfessorModel professor = _context.professorDb.Find(id);
+                return View(professor);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult updateProfessorProfile(ProfessorModel professor)
+        {
+            if (Session["username"] != null && Session["role"].Equals("professor"))
+            {
+                var professorInDb = _context.professorDb.Single(p => p.id == professor.id);
+                professorInDb.name = professor.name;
+                professorInDb.phone = professor.phone;
+                professorInDb.e_mail = professor.e_mail;
+                professorInDb.address = professor.address;
+                professorInDb.gender = professor.gender;
+                professorInDb.age = professor.age;
+                professorInDb.username = professor.username;
+
+                _context.SaveChanges();
+                return RedirectToAction("editProfessorProfile", new RouteValueDictionary(new { Controller = "Professor", Action = "editProfessorProfile", id = professor.id }));
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
