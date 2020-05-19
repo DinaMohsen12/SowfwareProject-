@@ -246,6 +246,8 @@
     <Content Include="Views\Professor\viewCourses.cshtml" />
     <Content Include="Views\Professor\addQuestion.cshtml" />
     <Content Include="Views\Professor\editExam.cshtml" />
+    <Content Include="Views\Professor\editProfessorProfile.cshtml" />
+    <Content Include="Views\Admin\editAdminProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

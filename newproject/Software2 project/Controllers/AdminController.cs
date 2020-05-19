@@ -8,6 +8,7 @@ using Software2_project.Models;
 using Software2_project.Context;
 using Software2_project.ViewModel;
 using System.Data.Entity;
+using System.Web.Routing;
 
 namespace Software2_project.Controllers
 {
@@ -344,6 +345,34 @@ namespace Software2_project.Controllers
             }
 
             else return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult editAdminProfile(short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("admin"))
+            {
+                AdminModel admin = _context.adminDb.Find(id);
+                return View(admin);
+            }
+
+            return RedirectToAction("Login", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult updateAdminProfile(AdminModel admin)
+        {
+            if (Session["username"] != null && Session["role"].Equals("admin"))
+            {
+                var adminInDb = _context.adminDb.Single(p => p.id == admin.id);
+                adminInDb.name = admin.name;
+                adminInDb.phone = admin.phone;
+                adminInDb.username = admin.username;
+
+                _context.SaveChanges();
+                return RedirectToAction("editAdminProfile", new RouteValueDictionary(new { Controller = "Admin", Action = "editAdminProfile", id = admin.id }));
+            }
+
+            return RedirectToAction("Login", "Home");
         }
     }
 }
