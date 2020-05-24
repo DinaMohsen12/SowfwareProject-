@@ -1,0 +1,23 @@
+﻿@model Software2_project.Models.CourseModel
+@{
+    ViewBag.Title = "deleteExam";
+    Layout = "~/Views/Shared/ProfessorLayout.cshtml";
+}
+
+
+<h2 id="Pagetitle" style="text-align:center; font-weight:bold; margin-right:auto; margin-left:auto">
+    <span style="border-bottom:1.5px solid;">Delete Exam: <span style="font-weight:bold">@Model.name Exam</span></span>
+</h2>
+
+<h4 style="margin-top: 35px">Are you sure you want to delete @Model.name exam?</h4>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "listExams", "Professor")
+        </div>
+    }
+</div>
