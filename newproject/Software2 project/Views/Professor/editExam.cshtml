@@ -11,6 +11,10 @@
 
 <a style="border-radius:10px; margin-top:10px;" class="btn btn-secondary" href="@Url.Action("addQuestion","Professor", new { id = Model.course.id }, null)">+ Add Question</a>
 
+
+@if (Model.questions.Count() > 1)
+{<a class="btn btn-danger" style="border-radius:10px;margin-top:10px; float:right" href="@Url.Action("deleteExam","Professor", new { id = Model.course.id }, null)">Delete Exam</a>}
+
 @using (Html.BeginForm("updateExam", "Professor"))
 {
     for (int i = 0; i < Model.questions.Count(); i++)
