@@ -74,9 +74,9 @@
                     Model.courses[i].IsChecked = true;
                 }
 
-                <label class="checkbox-inline">
-                    @Html.CheckBoxFor(m => Model.courses[i].IsChecked)
-                    @Model.courses[i].name
+                <label class="checkbox-inline custom-control custom-checkbox">
+                        @Html.CheckBoxFor(m => Model.courses[i].IsChecked, new { @class = "custom-control-input", id = "course " + i })
+                        <label class="custom-control-label" for="course @i">@Model.courses[i].name</label>
                     @Html.HiddenFor(m => m.courses[i].id)
                     @Html.HiddenFor(m => m.courses[i].code)
                     @Html.HiddenFor(m => m.courses[i].name)

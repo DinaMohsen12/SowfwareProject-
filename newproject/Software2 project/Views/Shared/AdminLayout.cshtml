@@ -9,6 +9,29 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 20px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 3.5px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #ef6102;
+            border-radius: 3px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #ca5000
+            }
+
+
         .dropdown {
             position: relative;
             display: inline-block;
@@ -64,7 +87,7 @@
         </div>
     </div>-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-top:-50px; margin-bottom:20px; position:sticky; top:0">
-        <a class="navbar-brand" href="@Url.Action("loggedIn", "Admin")" style="font-weight: bold">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")" style="font-weight: bold">
             <img src="~/robot.png" height="40px" style="margin-right:-15px;/><span style="z-index:-1">FCAIH</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +104,7 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <button class="nav-link" style="background:none; border:hidden">Students</button>
+                        <button class="nav-link" style="background:none; border:hidden">Students &darr;</button>
                         <div class="dropdown-content">
                             <a href="@Url.Action("addStudent", "Admin")">Add</a>
                             <a href="@Url.Action("listStudents", "Admin")">List &amp; Update &amp; Delete</a>
@@ -92,7 +115,7 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <button class="nav-link" style="background:none; border:hidden">Professors</button>
+                        <button class="nav-link" style="background:none; border:hidden">Professors &darr;</button>
                         <div class="dropdown-content">
                             <a href="@Url.Action("addProfessor", "Admin")">Add</a>
                             <a href="@Url.Action("listProfessors", "Admin")">List &amp; Update &amp; Delete</a>
@@ -102,7 +125,7 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <button class="nav-link" style="background:none; border:hidden">Courses</button>
+                        <button class="nav-link" style="background:none; border:hidden">Courses &darr;</button>
                         <div class="dropdown-content">
                             <a href="@Url.Action("addCourse", "Admin")">Add</a>
                             <a href="@Url.Action("listCourses", "Admin")">List &amp; Update &amp; Delete</a>

@@ -1,7 +1,12 @@
-﻿@model Software2_project.Models.AdminModel
+﻿@model Software2_project.Models.Login
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/HomeLayout.cshtml";
+    if (Session["role"] == null)
+    { Layout = "~/Views/Shared/HomeLayout.cshtml"; }
+    else if (Session["role"].Equals("professor"))
+    { Layout = "~/Views/Shared/ProfessorLayout.cshtml"; }
+    else if (Session["role"].Equals("admin"))
+    { Layout = "~/Views/Shared/AdminLayout.cshtml"; }
 }
 
 @using (Html.BeginForm("LoginConfirmmed", "Home"))
@@ -12,7 +17,7 @@
 
     <div class="form-group" style="font-weight:bold">
         @Html.LabelFor(m => m.username)
-        @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Enter Your Username" })
+        @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Enter Your Username", autofocus = "autofocus" })
         @Html.ValidationMessageFor(m => m.username)
     </div>
 
