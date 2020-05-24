@@ -250,6 +250,7 @@
     <Content Include="Views\Admin\editAdminProfile.cshtml" />
     <Content Include="Views\Professor\deleteExam.cshtml" />
     <Content Include="Views\Professor\deleteQuestion.cshtml" />
+    <Content Include="Views\Professor\listExams.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

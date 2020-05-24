@@ -9,6 +9,8 @@
     <span style="border-bottom:1.5px solid;">Update Questions (@Model.course.name)</span>
 </h2>
 
+<a style="border-radius:10px; margin-top:10px;" class="btn btn-secondary" href="@Url.Action("addQuestion","Professor", new { id = Model.course.id }, null)">+ Add Question</a>
+
 @using (Html.BeginForm("updateExam", "Professor"))
 {
     for (int i = 0; i < Model.questions.Count(); i++)

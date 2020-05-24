@@ -71,7 +71,7 @@ namespace Software2_project.Controllers
             _context.SaveChanges();
 
             if (saveE != null)
-                return RedirectToAction("loggedIn", "Professor");
+                return RedirectToAction("listExams", "Professor");
 
             else if (newQ != null)
                 return RedirectToAction("addQuestion", new RouteValueDictionary(new { Controller = "Professor", Action = "addQuestion", id = Question.CourseId }));
@@ -209,6 +209,19 @@ namespace Software2_project.Controllers
             }
 
             else return RedirectToAction("login", "Home");
+        }
+
+        public ActionResult listExams()
+        {
+            if (Session["username"] != null && Session["role"].Equals("professor"))
+            {
+                var professorId = (short)Session["id"];
+                ProfessorModel professor = _context.professorDb.Find(professorId);
+                var courses = professor.courseModel.ToList();
+                return View(courses);
+            }
+
+            return RedirectToAction("login", "Home");
         }
     }
 }
