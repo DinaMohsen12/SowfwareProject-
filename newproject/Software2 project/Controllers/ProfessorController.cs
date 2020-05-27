@@ -223,5 +223,24 @@ namespace Software2_project.Controllers
 
             return RedirectToAction("login", "Home");
         }
+
+        public ActionResult viewExam (short id)
+        {
+            if (Session["username"] != null && Session["role"].Equals("professor"))
+            {
+                var questions = _context.questionDb.Where(q => q.CourseId == id).ToList();
+                CourseModel course = _context.courseDb.Single(c => c.id == id);
+
+                var viewModel = new CourseQuestionsViewModel
+                {
+                    course = course,
+                    questions = questions
+                };
+
+                return View(viewModel);
+            }
+
+            return RedirectToAction("login", "Home");
+        }
     }
 }
