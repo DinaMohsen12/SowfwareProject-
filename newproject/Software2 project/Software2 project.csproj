@@ -193,6 +193,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="gmail.png" />
     <Content Include="home.png" />
     <Content Include="home1.png" />
     <Content Include="robot.png" />
@@ -251,6 +252,7 @@
     <Content Include="Views\Professor\deleteExam.cshtml" />
     <Content Include="Views\Professor\deleteQuestion.cshtml" />
     <Content Include="Views\Professor\listExams.cshtml" />
+    <Content Include="Views\Professor\viewExam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

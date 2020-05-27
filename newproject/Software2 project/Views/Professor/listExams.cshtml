@@ -20,6 +20,7 @@
             <tr class="table-active">
                 <th scope="col" style="text-align:center; border-right:2.7px solid rgba(230, 115, 0, 0.3); width: 20%">Code</th>
                 <th scope="col" style="text-align:center">Name</th>
+                <th scope="col" style="text-align: center;width: 12%"></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                 <tr data-href="@Url.Action("editExam", "Professor", new { id = course.id }, null)">
                     <td scope="row" style="border-right:2.7px solid rgba(230, 115, 0, 0.3)">@course.code</td>
                     <td scope="row">@course.name</td>
+                    <td scope="row" style="font-weight:bold"><a class="viewExam" href="@Url.Action("viewExam","Professor", new { id = course.id})" style="padding: 4.46px; text-decoration:none; color: white">View Exam</a></td>
                 </tr>
             }
         </tbody>
@@ -78,6 +80,11 @@
 </script>
 
 <style>
+    .viewExam:hover{
+        color: #000000;
+        border: 1.5px solid white
+    }
+
     .results tr[visible='false'], .no-result {
         display: none
     }
